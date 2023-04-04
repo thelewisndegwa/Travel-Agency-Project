@@ -42,48 +42,107 @@ setInterval(() => {
 
 //fetch and display items to flip cards
 
-const cardsContainer = document.getElementById('cards-container');
-
-fetch('db.json')
+// Get accommodations and activities data from db.json
+fetch("db.json")
   .then(response => response.json())
   .then(data => {
     const accommodations = data.accommodations;
-    for (const accommodation of accommodations) {
-      const card = document.createElement('div');
-      card.classList.add('card');
-      
-      const flipper = document.createElement('div');
-      flipper.classList.add('flipper');
-      
-      const front = document.createElement('div');
-      front.classList.add('front');
-      front.textContent = accommodation.type;
-      
-      const back = document.createElement('div');
-      back.classList.add('back');
-      const price = document.createElement('p');
-      price.textContent = `Price per night: $${accommodation.price_per_night}`;
-      const rooms = document.createElement('p');
-      rooms.textContent = `Available rooms: ${accommodation.available_rooms}`;
-      const occupancy = document.createElement('p');
-      occupancy.textContent = `Max occupancy: ${accommodation.max_occupancy}`;
-      const description = document.createElement('p');
-      description.textContent = accommodation.description;
-      const type = document.createElement('h2');
+    const activities = data.activities;
+
+    // Get flip card containers from the HTML document
+    const accommodationsContainer = document.getElementById("accommodations-container");
+    const activitiesContainer = document.getElementById("activities-container");
+
+    // Create flip card elements for accommodations
+    accommodations.forEach(accommodation => {
+      const flipCard = document.createElement("div");
+      flipCard.classList.add("flip-card");
+
+      const flipCardInner = document.createElement("div");
+      flipCardInner.classList.add("flip-card-inner");
+
+      const flipCardFront = document.createElement("div");
+      flipCardFront.classList.add("flip-card-front");
+
+      const image = document.createElement("img");
+      image.src = accommodation.image;
+      image.alt = accommodation.type;
+      flipCardFront.appendChild(image);
+
+      const type = document.createElement("h3");
       type.textContent = accommodation.type;
-      
-      back.appendChild(type);
-      back.appendChild(price);
-      back.appendChild(rooms);
-      back.appendChild(occupancy);
-      back.appendChild(description);
-      
-      flipper.appendChild(front);
-      flipper.appendChild(back);
-      
-      card.appendChild(flipper);
-      
-      cardsContainer.appendChild(card);
-    }
+      flipCardFront.appendChild(type);
+
+      flipCardInner.appendChild(flipCardFront);
+
+      const flipCardBack = document.createElement("div");
+      flipCardBack.classList.add("flip-card-back");
+
+      const price = document.createElement("p");
+      price.textContent = "Price per night: $" + accommodation.price_per_night;
+      flipCardBack.appendChild(price);
+
+      const availableRooms = document.createElement("p");
+      availableRooms.textContent = "Available rooms: " + accommodation.available_rooms;
+      flipCardBack.appendChild(availableRooms);
+
+      const maxOccupancy = document.createElement("p");
+      maxOccupancy.textContent = "Max occupancy: " + accommodation.max_occupancy;
+      flipCardBack.appendChild(maxOccupancy);
+
+      const description = document.createElement("p");
+      description.textContent = accommodation.description;
+      flipCardBack.appendChild(description);
+
+      flipCardInner.appendChild(flipCardBack);
+
+      flipCard.appendChild(flipCardInner);
+
+      accommodationsContainer.appendChild(flipCard);
+    });
+
+    // Create flip card elements for activities
+    activities.forEach(activity => {
+      const flipCard = document.createElement("div");
+      flipCard.classList.add("flip-card");
+
+      const flipCardInner = document.createElement("div");
+      flipCardInner.classList.add("flip-card-inner");
+
+      const flipCardFront = document.createElement("div");
+      flipCardFront.classList.add("flip-card-front");
+
+      const image = document.createElement("img");
+      image.src = activity.image;
+      image.alt = activity.name;
+      flipCardFront.appendChild(image);
+
+      const name = document.createElement("h3");
+      name.textContent = activity.name;
+      flipCardFront.appendChild(name);
+
+      flipCardInner.appendChild(flipCardFront);
+
+      const flipCardBack = document.createElement("div");
+      flipCardBack.classList.add("flip-card-back");
+
+      const price = document.createElement("p");
+      price.textContent = "Price: $" + activity.price;
+      flipCardBack.appendChild(price);
+
+      const time = document.createElement("p");
+      time.textContent = "Time: " + activity.time;
+      flipCardBack.appendChild(time);
+
+      const description = document.createElement("p");
+      description.textContent = activity.description;
+      flipCardBack.appendChild(description);
+
+      flipCardInner.appendChild(flipCardBack);
+
+      flipCard.appendChild(flipCardInner);
+
+      activitiesContainer.appendChild(flipCard);
+    });
   })
-  .catch(error => console.error(error));
+  .catch(error => console.log(error));
