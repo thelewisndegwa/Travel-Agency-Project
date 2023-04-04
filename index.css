@@ -336,3 +336,9 @@ span {
   margin: 0 auto;
   padding: 10px 0;
 }
+
+nav ul li a:hover{
+  color: white;
+  opacity:0.5 ;
+}
+

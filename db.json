@@ -1,0 +1,81 @@
+{
+    "accommodations": [
+      {
+        "id": "1",
+        "type": "Airbnb",
+        "price_per_night": 100,
+        "available_rooms": 2,
+        "max_occupancy": 2,
+        "description": "A cozy apartment in the heart of the city"
+      },
+      {
+        "id": "2",
+        "type": "Hotel",
+        "price_per_night": 150,
+        "available_rooms": 5,
+        "max_occupancy": 4,
+        "description": "A luxurious hotel with a great view of the ocean"
+      },
+      {
+        "id": "3",
+        "type": "Campsite",
+        "price_per_night": 50,
+        "available_rooms": 10,
+        "max_occupancy": 6,
+        "description": "A secluded campsite with access to hiking trails"
+      },
+      {
+        "id": "4",
+        "type": "Lodge",
+        "price_per_night": 200,
+        "available_rooms": 3,
+        "max_occupancy": 4,
+        "description": "A rustic lodge with a fireplace and scenic views"
+      }
+    ],
+    "activities": [
+      {
+        "id": "1",
+        "name": "Camping",
+        "price": 25,
+        "duration": "1 day",
+        "description": "Spend the day exploring nature and sleeping under the stars"
+      },
+      {
+        "id": "2",
+        "name": "Hiking",
+        "price": 15,
+        "duration": "2 hours",
+        "description": "Take a guided hike through scenic trails"
+      },
+      {
+        "id": "3",
+        "name": "Animal Safari",
+        "price": 100,
+        "duration": "3 hours",
+        "description": "See wildlife up close on a guided safari adventure"
+      },
+      {
+        "id": "4",
+        "name": "Meditation & Yoga",
+        "price": 20,
+        "duration": "1 hour",
+        "description": "Relax and rejuvenate with guided meditation and yoga sessions"
+      },
+      {
+        "id": "5",
+        "name": "Visiting Parks",
+        "price": 5,
+        "duration": "2 hours",
+        "description": "Explore Kenya's beautiful parks and gardens"
+      },
+      {
+        "id": "6",
+        "name": "Visiting Beaches",
+        "price": 10,
+        "duration": "4 hours",
+        "description": "Enjoy the sun, sand, and surf at Kenya's stunning beaches"
+      }
+    ]
+  }
+  
