@@ -147,4 +147,18 @@ fetch("db.json")
   })
   .catch(error => console.log(error));
 
- 
+   // Create book button
+   const bookButton = document.createElement("button");
+   bookButton.textContent = "Book";
+   bookButton.addEventListener("click", () => {
+     if (accommodation.available_rooms > 0) {
+       accommodation.available_rooms--;
+       availableRooms.textContent = "Available rooms: " + accommodation.available_rooms;
+       if (accommodation.available_rooms === 0) {
+         bookButton.disabled = true;
+       }
+     }
+   });
+   flipCardBack.appendChild(bookButton);
+
+   flipCardInner.appendChild(flipCardBack);
