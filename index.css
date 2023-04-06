@@ -445,3 +445,37 @@ a:hover{
   height: 200px;
   object-fit: cover;
 }
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 50px;
+  text-align: center;
+}
+
+
+.contact-info {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.contact-info li {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.social-media {
+  list-style-type: none;
+  padding: 0;
+}
+
+.social-media li {
+  display: inline-block;
+  margin-right: 20px;
+  font-size: 24px;
+}
+
+.social-media li:last-child {
+  margin-right: 0;
+}
